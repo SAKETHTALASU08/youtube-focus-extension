@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "AI Study Browser Assistant",
+  "version": "4.0.0",
+  "description": "A modular MV3 study assistant for YouTube focus routing, analytics, and future AI learning workflows.",
+  "permissions": ["storage", "alarms", "activeTab", "tabs"],
+  "host_permissions": ["https://www.youtube.com/*", "https://youtube.com/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "AI Study Assistant",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
